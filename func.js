@@ -1,3 +1,4 @@
+
 const editProfileBtn = document.getElementById('editprofile');
 const editWorkoutBtn = document.getElementById('editwrkout');
 const expandWorkoutBtn = document.getElementById('expandwrkt');
@@ -46,8 +47,38 @@ const fibernow = 0;
 const workoutModal = document.getElementById("workoutModal");
 const closeWorkoutBtn = document.getElementById("closeWorkoutBtn");
 const saveWorkoutBtn = document.getElementById("saveWorkoutBtn");
+const pplRadio = document.getElementById('PPLRadio');
+const arnoldRadio = document.getElementById('ArnoldRadio');
+const ulRadio = document.getElementById('U/LRadio');
+const customRadio = document.getElementById('CustomRadio');
+const customsplit = document.getElementById('CustomSplitName')
+const SunpplSelect = document.getElementById("SunPPLSelect");
+const SunarnoldSelect = document.getElementById("SunArnoldSelect");
+const SunulSelect = document.getElementById("SunULSelect");
 
+const MonpplSelect = document.getElementById("MonPPLSelect");
+const MonarnoldSelect = document.getElementById("MonArnoldSelect");
+const MonulSelect = document.getElementById("MonULSelect");
 
+const TuepplSelect = document.getElementById("TuePPLSelect");
+const TuearnoldSelect = document.getElementById("TueArnoldSelect");
+const TueulSelect = document.getElementById("TueULSelect");
+
+const WedpplSelect = document.getElementById("WedPPLSelect");
+const WedarnoldSelect = document.getElementById("WedArnoldSelect");
+const WedulSelect = document.getElementById("WedULSelect");
+
+const ThurspplSelect = document.getElementById("ThursPPLSelect");
+const ThursarnoldSelect = document.getElementById("ThursArnoldSelect");
+const ThursulSelect = document.getElementById("ThursULSelect");
+
+const FripplSelect = document.getElementById("FriPPLSelect");
+const FriarnoldSelect = document.getElementById("FriArnoldSelect");
+const FriulSelect = document.getElementById("FriULSelect");
+
+const SatpplSelect = document.getElementById("SatPPLSelect");
+const SatarnoldSelect = document.getElementById("SatArnoldSelect");
+const SatulSelect = document.getElementById("SatULSelect");
 
 
 
@@ -64,7 +95,11 @@ editWorkoutBtn.addEventListener('click', editWorkout);
 closeProfileBtn.addEventListener('click', closeProfile);
 saveProfileBtn.addEventListener('click', saveProfile);
 closeWorkoutBtn.addEventListener('click', closeWorkout);
-saveWorkoutBtn.addEventListener('click', saveWorkout);
+//saveWorkoutBtn.addEventListener('click', saveWorkout);
+pplRadio.addEventListener('change', workoutSplit);
+arnoldRadio.addEventListener('change', workoutSplit);
+ulRadio.addEventListener('change', workoutSplit);
+customRadio.addEventListener('change', workoutSplit);
 
 function editProfile(){
     profileModal.style.display = "block";
@@ -189,15 +224,68 @@ function closeWorkout(){
     workoutModal.style.display = "none";
 }
 
-function workoutSplit(){
-    if (pplradio.checked){
-    ppl.style.display = "block";
+function workoutSplit() {
+    SunpplSelect.style.display = "none";
+    SunarnoldSelect.style.display = "none";
+    SunulSelect.style.display = "none";
+
+    MonpplSelect.style.display = "none";
+    MonarnoldSelect.style.display = "none";
+    MonulSelect.style.display = "none";
+
+    TuepplSelect.style.display = "none";
+    TuearnoldSelect.style.display = "none";
+    TueulSelect.style.display = "none";
+
+    WedpplSelect.style.display = "none";
+    WedarnoldSelect.style.display = "none";
+    WedulSelect.style.display = "none";
+
+    ThurspplSelect.style.display = "none";
+    ThursarnoldSelect.style.display = "none";
+    ThursulSelect.style.display = "none";
+
+    FripplSelect.style.display = "none";
+    FriarnoldSelect.style.display = "none";
+    FriulSelect.style.display = "none";
+
+    SatpplSelect.style.display = "none";
+    SatarnoldSelect.style.display = "none";
+    SatulSelect.style.display = "none";
+
+    if (pplRadio.checked) {
+        SunpplSelect.style.display = "block";
+        MonpplSelect.style.display = "block";
+        TuepplSelect.style.display = "block";
+        WedpplSelect.style.display = "block";
+        ThurspplSelect.style.display = "block";
+        FripplSelect.style.display = "block";
+        SatpplSelect.style.display = "block";
+    } 
+    else if (arnoldRadio.checked) {
+        SunarnoldSelect.style.display = "block";
+        MonarnoldSelect.style.display = "block";
+        TuearnoldSelect.style.display = "block";
+        WedarnoldSelect.style.display = "block";
+        ThursarnoldSelect.style.display = "block";
+        FriarnoldSelect.style.display = "block";
+        SatarnoldSelect.style.display = "block";
+    } 
+    else if (ulRadio.checked) {
+        SunulSelect.style.display = "block";
+        MonulSelect.style.display = "block";
+        TueulSelect.style.display = "block";
+        WedulSelect.style.display = "block";
+        ThursulSelect.style.display = "block";
+        FriulSelect.style.display = "block";
+        SatulSelect.style.display = "block";
     }
 
-    else if (arnoldradio.checked){
-
+    else if (customRadio.checked) {
+        customsplit.style.display = "block";
     }
 }
+
 
 function saveWorkout(){
 
