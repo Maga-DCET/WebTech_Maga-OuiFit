@@ -2,7 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-.PPLSelect, .ArnoldSelect, .ULSelect, .CustomSplitName {
+.PPLSelect, .ArnoldSelect, .ULSelect, .CustomSplitName, .CustomWorkout, .exercise-group {
     display: none;
 }
 
@@ -72,6 +72,7 @@
   border-radius: 12px;
   width: 900px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  color: aliceblue;
   
 }
 
