@@ -66,7 +66,7 @@
 }
 
 .workoutmodal-content {
-  background-color: blue;
+  background-color: navy;
   margin: 5% auto;
   padding: 20px 30px;
   border-radius: 12px;
@@ -118,7 +118,8 @@ body {
 }
 
 .profile{
-    width: 100%;
+    width: auto;
+    height: auto;
     background-color: rgba(245, 222, 179, 0.6);
     border-radius: 30px;
     text-align: center;
@@ -152,7 +153,7 @@ body {
 }
 
 .workout{
-    background-color: rgba(0, 0, 255, 0.6);
+    background-color: rgba(0, 0, 128, 0.6);
     color: white;
     width: 900px;
     padding: 20px;
@@ -188,7 +189,7 @@ ul {
   }
 
 .nutrition{
-    background-color: rgba(255, 0, 0, 0.6);
+    background-color: rgba(128, 0, 0, 0.6);
     color: rgb(255, 255, 255);
     width: 900px;
     padding: 20px;
@@ -217,7 +218,7 @@ ul {
 
 
 .flag {
-    background-image: url('https://www.cia-france.fr/media/1527/quelle-est-la-signification-du-drapeau-francais_745x360.jpg');
+    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20230630/pngtree-dark-fitness-room-with-training-equipment-and-black-dumbbells-on-the-image_3698810.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
