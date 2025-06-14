@@ -52,6 +52,7 @@ const arnoldRadio = document.getElementById('ArnoldRadio');
 const ulRadio = document.getElementById('U/LRadio');
 const customRadio = document.getElementById('CustomRadio');
 const customsplit = document.getElementById('CustomSplitName')
+
 const SunpplSelect = document.getElementById("SunPPLSelect");
 const SunarnoldSelect = document.getElementById("SunArnoldSelect");
 const SunulSelect = document.getElementById("SunULSelect");
@@ -80,8 +81,15 @@ const SatpplSelect = document.getElementById("SatPPLSelect");
 const SatarnoldSelect = document.getElementById("SatArnoldSelect");
 const SatulSelect = document.getElementById("SatULSelect");
 
+const suncustomworkout = document.getElementById("SunCustomWorkout");
+const moncustomworkout = document.getElementById("MonCustomWorkout");
+const tuecustomworkout = document.getElementById("TueCustomWorkout");
+const wedcustomworkout = document.getElementById("WedCustomWorkout");
+const thurscustomworkout = document.getElementById("ThursCustomWorkout");
+const fricustomworkout = document.getElementById("FriCustomWorkout");
+const satcustomworkout = document.getElementById("SatCustomWorkout");
 
-
+const sunexercise = document.getElementById("sunexercise-group");
 
 
 editProfileBtn.addEventListener('click', editProfile);
@@ -100,6 +108,10 @@ pplRadio.addEventListener('change', workoutSplit);
 arnoldRadio.addEventListener('change', workoutSplit);
 ulRadio.addEventListener('change', workoutSplit);
 customRadio.addEventListener('change', workoutSplit);
+
+SunpplSelect.addEventListener('change');
+SunarnoldSelect.addEventListener('change');
+SunulSelect.addEventListener('change');
 
 function editProfile(){
     profileModal.style.display = "block";
@@ -207,6 +219,7 @@ function saveProfile() {
     let maintenanceFiber = fibercal/1000;
     maintenanceFiber = Math.floor(maintenanceFiber);
     fiber.textContent = fibernow + 'g/' +maintenanceFiber + 'g'
+    
  }
 
 
@@ -252,6 +265,15 @@ function workoutSplit() {
     SatpplSelect.style.display = "none";
     SatarnoldSelect.style.display = "none";
     SatulSelect.style.display = "none";
+    customsplit.style.display = "none";
+
+    suncustomworkout.style.display = "none";
+    moncustomworkout.style.display = "none";
+    tuecustomworkout.style.display = "none";
+    wedcustomworkout.style.display = "none";
+    thurscustomworkout.style.display = "none";
+    fricustomworkout.style.display = "none";
+    satcustomworkout.style.display = "none";
 
     if (pplRadio.checked) {
         SunpplSelect.style.display = "block";
@@ -283,6 +305,24 @@ function workoutSplit() {
 
     else if (customRadio.checked) {
         customsplit.style.display = "block";
+        suncustomworkout.style.display = "block";
+        moncustomworkout.style.display = "block";
+        tuecustomworkout.style.display = "block";
+        wedcustomworkout.style.display = "block";
+        thurscustomworkout.style.display = "block";
+        fricustomworkout.style.display = "block";
+        satcustomworkout.style.display = "block";
+
+    }
+}
+
+function select(){
+    if(SunpplSelect.value!='rest' || SunarnoldSelect.value!='rest' || SunulSelect.value!='rest' || suncustomworkout.value!='rest' || suncustomworkout.value!='Rest' || suncustomworkout.value!='REST'){
+            sunexercise.style.display = "block";
+    }
+
+    else{
+        sunexercise.style.display = "none";
     }
 }
 
