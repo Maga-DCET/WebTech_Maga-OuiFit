@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,11 +108,11 @@
         <span class="close-btn" id="closeProfileBtn">&times;</span>
         <h2>Edit Profile</h2>
         <label for="newWeight">Weight:</label>
-        <input class="ModalIntbox" type="text" id="newWeight" placeholder="Enter your weight in kilograms">
+        <input class="ModalIntbox" type="number" id="newWeight" placeholder="Enter your weight in kilograms">
         <label for="newHeight">Height:</label>
-        <input class="ModalIntbox" type="text" id="newHeight" placeholder="Enter your height in centimeters">
+        <input class="ModalIntbox" type="number" id="newHeight" placeholder="Enter your height in centimeters">
         <label for="newAge">Height:</label>
-        <input class="ModalIntbox" type="text" id="newAge" placeholder="Enter your age">
+        <input class="ModalIntbox" type="number" id="newAge" placeholder="Enter your age">
         <label>Gender:</label><br>
         <input type="radio" id="genderMale" name="setGender" value="Male">
         <label for="genderMale">Male</label><br>
@@ -149,10 +150,11 @@
 
     <div class="split-select">
       <h3>Select Workout Split</h3>
-      <label><input type="radio" id="PPL" name="workoutsplit" value="split"> PPL (Push Pull Legs)</label><br>
-      <label><input type="radio" id="Arnold" name="workoutsplit" value="split"> Arnold Split</label><br>
-      <label><input type="radio" id="U/L" name="workoutsplit" value="split"> Upper / Lower</label>
-      <label><input type="radio" id="Custom" name="workoutsplit" value="split"> Custom</label>
+      <label><input type="radio" id="PPLRadio" name="workoutsplit" value="split"> PPL (Push Pull Legs)</label><br>
+      <label><input type="radio" id="ArnoldRadio" name="workoutsplit" value="split"> Arnold Split</label><br>
+      <label><input type="radio" id="U/LRadio" name="workoutsplit" value="split"> Upper / Lower</label>
+      <label><input type="radio" id="CustomRadio" name="workoutsplit" value="split"> Custom</label>
+      <input type="text" id="CustomSplitName" class="CustomSplitName" placeholder="Custom Split Name">
     </div>
 
 
@@ -160,50 +162,147 @@
       <h3>Split Customization</h3>
       <div class="day-group">
         <label>Sunday:</label><br>
-        <div id="pplSunday" class="pplSplit">
-        <label><input type="radio" name="sunPPL" value="Push"> Push</label>
-        <label><input type="radio" name="sunPPL" value="Pull"> Pull</label>
-        <label><input type="radio" name="sunPPL" value="Legs"> Legs</label>
-        <label><input type="radio" name="sunPPL" value="Rest"> Rest</label>
-        </div>
-        <div id="arnoldSunday" class="arnoldSplit">
-        <label><input type="radio" name="sunArnold" value="ChestBack"> Chest & Back</label>
-        <label><input type="radio" name="sunArnold" value="ArmsShoulders"> Arms & Shoulders</label>
-        <label><input type="radio" name="sunArnold" value="Legs"> Legs</label>
-        <label><input type="radio" name="sunArnold" value="Rest"> Rest</label>
-        </div>
-        <div id="ulSunday" class="ulSplit">
-        <label><input type="radio" name="sunUL" value="Upper"> Upper</label>
-        <label><input type="radio" name="sunUL" value="Lower"> Lower</label>
-        <label><input type="radio" name="sunUL" value="Rest"> Rest</label>
-        </div>
+        <select id="SunPPLSelect" class="PPLSelect">
+            <option value="volvo">Rest</option>
+            <option value="saab">Push</option>
+            <option value="mercedes">Pull</option>
+            <option value="audi">Legs</option>
+          </select>
+          <select id="SunArnoldSelect" class="ArnoldSelect">
+            <option value="volvo">Rest</option>
+            <option value="mercedes">Chest and Back</option>
+            <option value="saab">Shoulder and Arms</option>
+            <option value="audi">Legs</option>
+          </select>
+          <select id="SunULSelect" class="ULSelect">
+            <option value="audi">Rest</option>
+            <option value="volvo">Upper</option>
+            <option value="saab">Lower</option>
+          </select>
       </div>
       <div class="day-group">
         <label>Monday:</label><br>
-
+        <select id="MonPPLSelect" class="PPLSelect">
+            <option value="volvo">Rest</option>
+            <option value="saab">Push</option>
+            <option value="mercedes">Pull</option>
+            <option value="audi">Legs</option>
+          </select>
+          <select id="MonArnoldSelect" class="ArnoldSelect">
+            <option value="volvo">Rest</option>
+            <option value="mercedes">Chest and Back</option>
+            <option value="saab">Shoulder and Arms</option>
+            <option value="audi">Legs</option>
+          </select>
+          <select id="MonULSelect" class="ULSelect">
+            <option value="audi">Rest</option>
+            <option value="volvo">Upper</option>
+            <option value="saab">Lower</option>
+          </select>
         
       </div>
       <div class="day-group">
         <label>Tuesday:</label><br>
-
+        <select id="TuePPLSelect" class="PPLSelect">
+            <option value="volvo">Rest</option>
+            <option value="saab">Push</option>
+            <option value="mercedes">Pull</option>
+            <option value="audi">Legs</option>
+          </select>
+          <select id="TueArnoldSelect" class="ArnoldSelect">
+            <option value="volvo">Rest</option>
+            <option value="mercedes">Chest and Back</option>
+            <option value="saab">Shoulder and Arms</option>
+            <option value="audi">Legs</option>
+          </select>
+          <select id="TueULSelect" class="ULSelect">
+            <option value="audi">Rest</option>
+            <option value="volvo">Upper</option>
+            <option value="saab">Lower</option>
+          </select>
         
       </div>
       <div class="day-group">
-        
+        <label>Wednesday:</label><br>
+        <select id="WedPPLSelect" class="PPLSelect">
+            <option value="volvo">Rest</option>
+            <option value="saab">Push</option>
+            <option value="mercedes">Pull</option>
+            <option value="audi">Legs</option>
+          </select>
+          <select id="WedArnoldSelect" class="ArnoldSelect">
+            <option value="volvo">Rest</option>
+            <option value="mercedes">Chest and Back</option>
+            <option value="saab">Shoulder and Arms</option>
+            <option value="audi">Legs</option>
+          </select>
+          <select id="WedULSelect" class="ULSelect">
+            <option value="audi">Rest</option>
+            <option value="volvo">Upper</option>
+            <option value="saab">Lower</option>
+          </select>
       </div>
       <div class="day-group">
         <label>Thursday:</label><br>
-
+        <select id="ThursPPLSelect" class="PPLSelect">
+            <option value="volvo">Rest</option>
+            <option value="saab">Push</option>
+            <option value="mercedes">Pull</option>
+            <option value="audi">Legs</option>
+          </select>
+          <select id="ThursArnoldSelect" class="ArnoldSelect">
+            <option value="volvo">Rest</option>
+            <option value="mercedes">Chest and Back</option>
+            <option value="saab">Shoulder and Arms</option>
+            <option value="audi">Legs</option>
+          </select>
+          <select id="ThursULSelect" class="ULSelect">
+            <option value="audi">Rest</option>
+            <option value="volvo">Upper</option>
+            <option value="saab">Lower</option>
+          </select>
         
       </div>
       <div class="day-group">
         <label>Friday:</label><br>
-
+        <select id="FriPPLSelect" class="PPLSelect">
+            <option value="volvo">Rest</option>
+            <option value="saab">Push</option>
+            <option value="mercedes">Pull</option>
+            <option value="audi">Legs</option>
+          </select>
+          <select id="FriArnoldSelect" class="ArnoldSelect">
+            <option value="volvo">Rest</option>
+            <option value="mercedes">Chest and Back</option>
+            <option value="saab">Shoulder and Arms</option>
+            <option value="audi">Legs</option>
+          </select>
+          <select id="FriULSelect" class="ULSelect">
+            <option value="audi">Rest</option>
+            <option value="volvo">Upper</option>
+            <option value="saab">Lower</option>
+          </select>
         
       </div>
       <div class="day-group">
         <label>Saturday:</label><br>
-
+        <select id="SatPPLSelect" class="PPLSelect">
+            <option value="volvo">Rest</option>
+            <option value="saab">Push</option>
+            <option value="mercedes">Pull</option>
+            <option value="audi">Legs</option>
+          </select>
+          <select id="SatArnoldSelect" class="ArnoldSelect">
+            <option value="volvo">Rest</option>
+            <option value="mercedes">Chest and Back</option>
+            <option value="saab">Shoulder and Arms</option>
+            <option value="audi">Legs</option>
+          </select>
+          <select id="SatULSelect" class="ULSelect">
+            <option value="audi">Rest</option>
+            <option value="volvo">Upper</option>
+            <option value="saab">Lower</option>
+          </select>
         
       </div>
     </div>
