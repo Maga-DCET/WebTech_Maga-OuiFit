@@ -1,0 +1,233 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.pplSplit, .arnoldSplit, .ulSplit {
+  display: none;
+}
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); 
+}
+
+
+.profilemodal-content {
+    background-color: rgb(245, 222, 179);
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+
+.close-btn {
+    float: right;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+  color: red;
+}
+
+
+.ModalIntbox {
+    width: 100%;
+    padding: 8px;
+    margin: 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+#saveProfileBtn {
+    width: 100%;
+    padding: 10px;
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#saveProfileBtn:hover {
+    background-color: #16a085;
+}
+
+.workoutmodal-content {
+  background-color: blue;
+  margin: 5% auto;
+  padding: 20px 30px;
+  border-radius: 12px;
+  width: 900px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  
+}
+
+.split-select {
+  display: flex;
+  align-items: center;
+}
+/**/
+
+
+.Intbox{
+    border-radius: 30px;
+    background-color: white;
+    color: black;
+    border-color: gray;
+    
+}
+
+.Prod {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px; 
+}
+
+body {
+    background-color: black;
+    margin: 0;
+    font-family: 'Bebas Neue' , sans-serif;
+    
+}
+
+.Buttons{
+    border-radius: 30% 90px;
+    background-color: gray;
+    color: black;
+    border-color: white;
+}
+
+.icon{
+    width: 60px;
+    height: 60px;
+}
+
+.profile{
+    width: 100%;
+    background-color: rgba(245, 222, 179, 0.6);
+    border-radius: 30px;
+    text-align: center;
+    padding: 1px;
+    margin-bottom: 30px;
+    margin-top: 0;
+
+}
+
+.data{
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+    column-gap: 90px;
+}
+
+.widgets{
+    display: flex;
+    column-gap: 60px;
+    
+}
+
+.bonjour{
+    text-align: center;
+    background-color: rgb(133, 129, 129);
+    color: white;
+    margin: 0;
+    padding: 0;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    font-family: 'Bebas Neue' , sans-serif;
+}
+
+.workout{
+    background-color: rgba(0, 0, 255, 0.6);
+    color: white;
+    width: 900px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 30px    
+    
+}
+
+table{
+    margin-left: auto;
+    margin-right: auto;
+    width: 65%;
+    border-collapse: collapse;
+    margin-top: 0;
+    text-align: center;
+}
+
+table th,
+table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid rgb(255, 255, 255)
+}
+
+ul {
+    list-style-position: inside;
+    text-align: center;
+    padding: 0;
+  }
+  
+  li {
+    text-align: center;
+  }
+
+.nutrition{
+    background-color: rgba(255, 0, 0, 0.6);
+    color: rgb(255, 255, 255);
+    width: 900px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 30px;
+}
+
+.macros{
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+    column-gap: 90px;
+}
+
+.steptracker {
+    width: 100%;
+    background-color: rgba(138, 43, 266, 0.6);
+    border-radius: 30px;
+    text-align: center;
+    padding: 1px;
+    margin-top: 30px;
+
+
+}
+
+
+
+.flag {
+    background-image: url('https://www.cia-france.fr/media/1527/quelle-est-la-signification-du-drapeau-francais_745x360.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 30px; 
+    border-bottom: 4px solid rgb(133, 129, 129);
+}
+
+#Weight, #Height, #Age, #Gender, #protein, #cal, #fat, button, #carbs, #fiber{
+    font-family: 'Inter', sans-serif;
+}
+
+button:hover{
+    color: white;
+}
