@@ -111,7 +111,7 @@
         <input class="ModalIntbox" type="number" id="newWeight" placeholder="Enter your weight in kilograms">
         <label for="newHeight">Height:</label>
         <input class="ModalIntbox" type="number" id="newHeight" placeholder="Enter your height in centimeters">
-        <label for="newAge">Height:</label>
+        <label for="newAge">Age:</label>
         <input class="ModalIntbox" type="number" id="newAge" placeholder="Enter your age">
         <label>Gender:</label><br>
         <input type="radio" id="genderMale" name="setGender" value="Male">
@@ -163,147 +163,275 @@
       <div class="day-group">
         <label>Sunday:</label><br>
         <select id="SunPPLSelect" class="PPLSelect">
-            <option value="volvo">Rest</option>
-            <option value="saab">Push</option>
-            <option value="mercedes">Pull</option>
-            <option value="audi">Legs</option>
+            <option value="rest">Rest</option>
+            <option value="push">Push</option>
+            <option value="pull">Pull</option>
+            <option value="legs">Legs</option>
           </select>
           <select id="SunArnoldSelect" class="ArnoldSelect">
-            <option value="volvo">Rest</option>
-            <option value="mercedes">Chest and Back</option>
-            <option value="saab">Shoulder and Arms</option>
-            <option value="audi">Legs</option>
+            <option value="rest">Rest</option>
+            <option value="chestback">Chest and Back</option>
+            <option value="sharms">Shoulder and Arms</option>
+            <option value="legs">Legs</option>
           </select>
           <select id="SunULSelect" class="ULSelect">
-            <option value="audi">Rest</option>
-            <option value="volvo">Upper</option>
-            <option value="saab">Lower</option>
+            <option value="rest">Rest</option>
+            <option value="upper">Upper</option>
+            <option value="lower">Lower</option>
           </select>
+          <input style="width: 240px;" type="text" id="SunCustomWorkout" class="CustomWorkout" placeholder="Enter your custom workout name">
+          <div id="sunexercise-group" class="exercise-group">
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Upper Chest"> Upper Chest</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Mid Chest"> Mid Chest</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Lower Chest"> Lower Chest</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Upper Back"> Upper Back</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Mid Back"> Mid Back</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Lower Back"> Lower Back</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Front Delts"> Front Delts</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Rear Delts"> Rear Delts</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Lateral Delts"> Lateral Delts</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Biceps"> Biceps</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Triceps"> Triceps</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Forearms"> Forearms</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Quads"> Quads</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Glutes"> Glutes</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Hamstring"> Hamstring</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Calves"> Calves</label>
+          </div>
       </div>
       <div class="day-group">
         <label>Monday:</label><br>
         <select id="MonPPLSelect" class="PPLSelect">
-            <option value="volvo">Rest</option>
-            <option value="saab">Push</option>
-            <option value="mercedes">Pull</option>
-            <option value="audi">Legs</option>
+            <option value="rest">Rest</option>
+            <option value="push">Push</option>
+            <option value="pull">Pull</option>
+            <option value="legs">Legs</option>
           </select>
           <select id="MonArnoldSelect" class="ArnoldSelect">
-            <option value="volvo">Rest</option>
-            <option value="mercedes">Chest and Back</option>
-            <option value="saab">Shoulder and Arms</option>
-            <option value="audi">Legs</option>
+            <option value="rest">Rest</option>
+            <option value="chestback">Chest and Back</option>
+            <option value="sharms">Shoulder and Arms</option>
+            <option value="legs">Legs</option>
           </select>
           <select id="MonULSelect" class="ULSelect">
-            <option value="audi">Rest</option>
-            <option value="volvo">Upper</option>
-            <option value="saab">Lower</option>
+            <option value="rest">Rest</option>
+            <option value="upper">Upper</option>
+            <option value="lower">Lower</option>
           </select>
-        
+          <input style="width: 240px;" type="text" id="MonCustomWorkout" class="CustomWorkout" placeholder="Enter your custom workout name">
+          <div id="monexercise-group" class="exercise-group">
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Upper Chest"> Upper Chest</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Mid Chest"> Mid Chest</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Lower Chest"> Lower Chest</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Upper Back"> Upper Back</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Mid Back"> Mid Back</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Lower Back"> Lower Back</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Front Delts"> Front Delts</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Rear Delts"> Rear Delts</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Lateral Delts"> Lateral Delts</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Biceps"> Biceps</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Triceps"> Triceps</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Forearms"> Forearms</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Quads"> Quads</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Glutes"> Glutes</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Hamstring"> Hamstring</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Calves"> Calves</label>
+          </div>
       </div>
       <div class="day-group">
         <label>Tuesday:</label><br>
         <select id="TuePPLSelect" class="PPLSelect">
-            <option value="volvo">Rest</option>
-            <option value="saab">Push</option>
-            <option value="mercedes">Pull</option>
-            <option value="audi">Legs</option>
+            <option value="rest">Rest</option>
+            <option value="push">Push</option>
+            <option value="pull">Pull</option>
+            <option value="legs">Legs</option>
           </select>
           <select id="TueArnoldSelect" class="ArnoldSelect">
-            <option value="volvo">Rest</option>
-            <option value="mercedes">Chest and Back</option>
-            <option value="saab">Shoulder and Arms</option>
-            <option value="audi">Legs</option>
+            <option value="rest">Rest</option>
+            <option value="chestback">Chest and Back</option>
+            <option value="sharms">Shoulder and Arms</option>
+            <option value="legs">Legs</option>
           </select>
           <select id="TueULSelect" class="ULSelect">
-            <option value="audi">Rest</option>
-            <option value="volvo">Upper</option>
-            <option value="saab">Lower</option>
+            <option value="rest">Rest</option>
+            <option value="upper">Upper</option>
+            <option value="lower">Lower</option>
           </select>
-        
+          <input style="width: 240px;" type="text" id="TueCustomWorkout" class="CustomWorkout" placeholder="Enter your custom workout name">
+          <div id="tueexercise-group" class="exercise-group">
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Upper Chest"> Upper Chest</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Mid Chest"> Mid Chest</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Lower Chest"> Lower Chest</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Upper Back"> Upper Back</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Mid Back"> Mid Back</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Lower Back"> Lower Back</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Front Delts"> Front Delts</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Rear Delts"> Rear Delts</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Lateral Delts"> Lateral Delts</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Biceps"> Biceps</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Triceps"> Triceps</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Forearms"> Forearms</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Quads"> Quads</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Glutes"> Glutes</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Hamstring"> Hamstring</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Calves"> Calves</label>
+          </div>
       </div>
       <div class="day-group">
         <label>Wednesday:</label><br>
         <select id="WedPPLSelect" class="PPLSelect">
-            <option value="volvo">Rest</option>
-            <option value="saab">Push</option>
-            <option value="mercedes">Pull</option>
-            <option value="audi">Legs</option>
+            <option value="rest">Rest</option>
+            <option value="push">Push</option>
+            <option value="pull">Pull</option>
+            <option value="legs">Legs</option>
           </select>
           <select id="WedArnoldSelect" class="ArnoldSelect">
-            <option value="volvo">Rest</option>
-            <option value="mercedes">Chest and Back</option>
-            <option value="saab">Shoulder and Arms</option>
-            <option value="audi">Legs</option>
+            <option value="rest">Rest</option>
+            <option value="chestback">Chest and Back</option>
+            <option value="sharms">Shoulder and Arms</option>
+            <option value="legs">Legs</option>
           </select>
           <select id="WedULSelect" class="ULSelect">
-            <option value="audi">Rest</option>
-            <option value="volvo">Upper</option>
-            <option value="saab">Lower</option>
+            <option value="rest">Rest</option>
+            <option value="upper">Upper</option>
+            <option value="lower">Lower</option>
           </select>
+          <input style="width: 240px;" type="text" id="WedCustomWorkout" class="CustomWorkout" placeholder="Enter your custom workout name">
+          <div id="wedexercise-group" class="exercise-group">
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Upper Chest"> Upper Chest</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Mid Chest"> Mid Chest</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Lower Chest"> Lower Chest</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Upper Back"> Upper Back</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Mid Back"> Mid Back</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Lower Back"> Lower Back</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Front Delts"> Front Delts</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Rear Delts"> Rear Delts</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Lateral Delts"> Lateral Delts</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Biceps"> Biceps</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Triceps"> Triceps</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Forearms"> Forearms</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Quads"> Quads</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Glutes"> Glutes</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Hamstring"> Hamstring</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Calves"> Calves</label>
+          </div>
       </div>
       <div class="day-group">
         <label>Thursday:</label><br>
         <select id="ThursPPLSelect" class="PPLSelect">
-            <option value="volvo">Rest</option>
-            <option value="saab">Push</option>
-            <option value="mercedes">Pull</option>
-            <option value="audi">Legs</option>
+            <option value="rest">Rest</option>
+            <option value="push">Push</option>
+            <option value="pull">Pull</option>
+            <option value="legs">Legs</option>
           </select>
           <select id="ThursArnoldSelect" class="ArnoldSelect">
-            <option value="volvo">Rest</option>
-            <option value="mercedes">Chest and Back</option>
-            <option value="saab">Shoulder and Arms</option>
-            <option value="audi">Legs</option>
+            <option value="rest">Rest</option>
+            <option value="chestback">Chest and Back</option>
+            <option value="sharms">Shoulder and Arms</option>
+            <option value="legs">Legs</option>
           </select>
           <select id="ThursULSelect" class="ULSelect">
-            <option value="audi">Rest</option>
-            <option value="volvo">Upper</option>
-            <option value="saab">Lower</option>
+            <option value="rest">Rest</option>
+            <option value="upper">Upper</option>
+            <option value="lower">Lower</option>
           </select>
-        
+          <input style="width: 240px;" type="text" id="ThursCustomWorkout" class="CustomWorkout" placeholder="Enter your custom workout name">
+          <div id="thursexercise-group" class="exercise-group">
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Upper Chest"> Upper Chest</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Mid Chest"> Mid Chest</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Lower Chest"> Lower Chest</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Upper Back"> Upper Back</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Mid Back"> Mid Back</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Lower Back"> Lower Back</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Front Delts"> Front Delts</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Rear Delts"> Rear Delts</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Lateral Delts"> Lateral Delts</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Biceps"> Biceps</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Triceps"> Triceps</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Forearms"> Forearms</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Quads"> Quads</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Glutes"> Glutes</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Hamstring"> Hamstring</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Calves"> Calves</label>
+          </div>
       </div>
       <div class="day-group">
         <label>Friday:</label><br>
         <select id="FriPPLSelect" class="PPLSelect">
-            <option value="volvo">Rest</option>
-            <option value="saab">Push</option>
-            <option value="mercedes">Pull</option>
-            <option value="audi">Legs</option>
+            <option value="rest">Rest</option>
+            <option value="push">Push</option>
+            <option value="pull">Pull</option>
+            <option value="legs">Legs</option>
           </select>
           <select id="FriArnoldSelect" class="ArnoldSelect">
-            <option value="volvo">Rest</option>
-            <option value="mercedes">Chest and Back</option>
-            <option value="saab">Shoulder and Arms</option>
-            <option value="audi">Legs</option>
+            <option value="rest">Rest</option>
+            <option value="chestback">Chest and Back</option>
+            <option value="sharms">Shoulder and Arms</option>
+            <option value="legs">Legs</option>
           </select>
           <select id="FriULSelect" class="ULSelect">
-            <option value="audi">Rest</option>
-            <option value="volvo">Upper</option>
-            <option value="saab">Lower</option>
+            <option value="rest">Rest</option>
+            <option value="upper">Upper</option>
+            <option value="lower">Lower</option>
           </select>
-        
+          <input style="width: 240px;" type="text" id="FriCustomWorkout" class="CustomWorkout" placeholder="Enter your custom workout name">
+          <div id="friexercise-group" class="exercise-group">
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Upper Chest"> Upper Chest</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Mid Chest"> Mid Chest</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Lower Chest"> Lower Chest</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Upper Back"> Upper Back</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Mid Back"> Mid Back</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Lower Back"> Lower Back</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Front Delts"> Front Delts</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Rear Delts"> Rear Delts</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Lateral Delts"> Lateral Delts</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Biceps"> Biceps</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Triceps"> Triceps</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Forearms"> Forearms</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Quads"> Quads</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Glutes"> Glutes</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Hamstring"> Hamstring</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Calves"> Calves</label>
+          </div>
       </div>
       <div class="day-group">
         <label>Saturday:</label><br>
         <select id="SatPPLSelect" class="PPLSelect">
-            <option value="volvo">Rest</option>
-            <option value="saab">Push</option>
-            <option value="mercedes">Pull</option>
-            <option value="audi">Legs</option>
+            <option value="rest">Rest</option>
+            <option value="push">Push</option>
+            <option value="pull">Pull</option>
+            <option value="legs">Legs</option>
           </select>
           <select id="SatArnoldSelect" class="ArnoldSelect">
-            <option value="volvo">Rest</option>
-            <option value="mercedes">Chest and Back</option>
-            <option value="saab">Shoulder and Arms</option>
-            <option value="audi">Legs</option>
+            <option value="rest">Rest</option>
+            <option value="chestback">Chest and Back</option>
+            <option value="sharms">Shoulder and Arms</option>
+            <option value="legs">Legs</option>
           </select>
           <select id="SatULSelect" class="ULSelect">
-            <option value="audi">Rest</option>
-            <option value="volvo">Upper</option>
-            <option value="saab">Lower</option>
+            <option value="rest">Rest</option>
+            <option value="upper">Upper</option>
+            <option value="lower">Lower</option>
           </select>
-        
+          <input style="width: 240px;" type="text" id="SatCustomWorkout" class="CustomWorkout" placeholder="Enter your custom workout name">
+          <div id="satexercise-group" class="exercise-group">
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Upper Chest"> Upper Chest</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Mid Chest"> Mid Chest</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Lower Chest"> Lower Chest</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Upper Back"> Upper Back</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Mid Back"> Mid Back</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Lower Back"> Lower Back</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Front Delts"> Front Delts</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Rear Delts"> Rear Delts</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Lateral Delts"> Lateral Delts</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Biceps"> Biceps</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Triceps"> Triceps</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Forearms"> Forearms</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Quads"> Quads</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Glutes"> Glutes</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Hamstring"> Hamstring</label>
+            <label class="exercise-label"><input type="checkbox" name="sun-exercises" value="Calves"> Calves</label>
+          </div>
       </div>
     </div>
 
