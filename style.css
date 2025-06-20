@@ -624,3 +624,154 @@ input[type="checkbox"] {
   padding: 2px 5px;
   border-radius: 3px;
 }
+
+#editFromExpandBtn {
+    background-color: var(--accent-color);
+    border: none;
+    padding: 5px 15px;
+    font-size: 14px;
+    right: 60px;
+    top: 15px;
+}
+
+#editFromExpandBtn:hover {
+    background-color: var(--secondary-color);
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+    
+    .flag {
+        padding: 15px;
+    }
+    
+    .widgets {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .profile {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .data {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    
+    .data h2 {
+        font-size: 1.2rem;
+    }
+    
+    .workout, .nutrition {
+        padding: 15px;
+    }
+    
+    table {
+        font-size: 12px;
+    }
+    
+    table th, table td {
+        padding: 6px;
+    }
+    
+    .steptracker {
+        padding: 15px;
+    }
+    
+    .Intbox {
+        width: 100%;
+    }
+    
+    .profilemodal-content, .workoutmodal-content, .nutritionmodal-content {
+        width: 95%;
+        margin: 10% auto;
+        padding: 15px;
+    }
+    
+    .exercise-group {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .Buttons {
+        padding: 8px 12px;
+        font-size: 14px;
+        margin: 5px;
+    }
+    
+    .macros-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    #foodLogTable {
+        font-size: 12px;
+    }
+    
+    #foodLogTable th, #foodLogTable td {
+        padding: 6px;
+    }
+}
+
+@media (max-width: 375px) {
+    .data {
+        grid-template-columns: 1fr;
+    }
+    
+    .exercise-group {
+        grid-template-columns: 1fr;
+    }
+    
+    .macros-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    table {
+        font-size: 11px;
+    }
+}
+
+.button-touch {
+    transform: scale(0.95);
+    opacity: 0.9;
+}
+
+input[type="number"], input[type="text"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-size: 16px;
+    min-height: 44px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.modal-content {
+    -webkit-overflow-scrolling: touch;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+a, button, input, select, textarea, label {
+    touch-action: manipulation;
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 600px) {
+    .styled-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
