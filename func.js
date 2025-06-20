@@ -75,6 +75,7 @@ const customMacrosDiv = document.getElementById('customMacrosInput');
 const expandNutritionBtn = document.getElementById('expandntrtn');
 const expandNutritionModal = document.getElementById('expandNutritionModal');
 const closeNutritionExpandBtn = document.getElementById('closeNutritionExpandBtn');
+const subtractCaloriesBtn = document.getElementById('subtractCalories');
 
 let calnow = 0;
 let proteinnow = 0;
@@ -169,6 +170,7 @@ customCarbsInput.addEventListener('input', updateMacrosPreview);
 customFiberInput.addEventListener('input', updateMacrosPreview);
 expandNutritionBtn.addEventListener('click', showExpandedNutrition);
 closeNutritionExpandBtn.addEventListener('click', closeExpandedNutrition);
+subtractCaloriesBtn.addEventListener('click', subtractBurnedCalories);
 
 pplRadio.addEventListener('change', function() {
     workoutSplit();
@@ -201,12 +203,6 @@ Object.keys(daySelects).forEach(day => {
     daySelects[day].arnold.addEventListener('change', () => handleDaySelectChange(day));
     daySelects[day].ul.addEventListener('change', () => handleDaySelectChange(day));
     daySelects[day].custom.addEventListener('input', () => handleDaySelectChange(day));
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    loadProfileData();
-    loadWorkoutData();
-    setTodaysWorkout();
 });
 
 logFoodBtn.addEventListener('click', () => {
@@ -273,6 +269,16 @@ document.addEventListener('DOMContentLoaded', function() {
   loadWorkoutData();
   setTodaysWorkout();
   loadNutritionData();
+});
+
+document.getElementById('editFromExpandBtn').addEventListener('click', function() {
+    expandWorkoutModal.style.display = "none";
+    workoutModal.style.display = "block";
+});
+
+document.getElementById('editFromExpandBtn').addEventListener('click', function() {
+    expandWorkoutModal.style.display = "none";
+    editWorkout();
 });
 
 function addFoodToLog(selectedFood, amount) {
@@ -1161,3 +1167,38 @@ function updateModalMacros() {
   document.getElementById('expandedCarbs').textContent = carbsnow.toFixed(1);
   document.getElementById('expandedFiber').textContent = fibernow.toFixed(1);
 }
+
+function subtractBurnedCalories() {
+    const burnedCalories = parseInt(burned.textContent) || 0;
+    if (burnedCalories > 0) {
+        calnow = Math.max(0, calnow - burnedCalories);
+        updateNutritionDisplay();
+        saveNutritionData();
+        
+        stepsInput.value = '';
+        burned.textContent = 'N/A';
+        
+        alert(`Subtracted ${burnedCalories} calories from your daily total!`);
+    } else {
+        alert("No calories to subtract! Please enter steps first.");
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('.Buttons');
+    buttons.forEach(button => {
+        button.addEventListener('touchstart', function() {
+            this.classList.add('button-touch');
+        });
+        button.addEventListener('touchend', function() {
+            this.classList.remove('button-touch');
+        });
+    });
+    
+    const inputs = document.querySelectorAll('input[type="number"], input[type="text"]');
+    inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            this.style.fontSize = '16px';
+        });
+    });
+});
