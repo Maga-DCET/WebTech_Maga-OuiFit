@@ -97,7 +97,7 @@
       <input type="number" id="steps" class="Intbox" placeholder="Steps" min="0" max="50000" /> 
       <h2>Calories Burned:</h2>
       <h3 id="burned">N/A</h3>
-      <button id="history" class="Buttons">History</button>
+      <button id="subtractCalories" class="Buttons">Subtract Calories</button>
 </div>
 
 <div id="profileModal" class="modal">
@@ -452,6 +452,7 @@
 <div id="expandWorkoutModal" class="modal">
   <div class="workoutmodal-content">
     <span class="close-btn" id="closeExpandWorkoutBtn">&times;</span>
+    <button id="editFromExpandBtn" class="Buttons" style="position: absolute; top: 15px; right: 60px;">Edit Workout</button>
     <h2>Full Workout Details</h2>
     <div class="current-workout-summary">
       <h3>Today's Workout: <span id="expandedTodayWorkout">Rest Day</span></h3>
@@ -622,7 +623,7 @@
               </tr>
             </thead>
             <tbody id="foodLogBody">
-          </tbody>
+        </tbody>
       </table>
     </div>
   </div>
