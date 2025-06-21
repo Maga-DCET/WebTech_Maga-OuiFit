@@ -205,6 +205,12 @@ Object.keys(daySelects).forEach(day => {
     daySelects[day].custom.addEventListener('input', () => handleDaySelectChange(day));
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    loadProfileData();
+    loadWorkoutData();
+    setTodaysWorkout();
+});
+
 logFoodBtn.addEventListener('click', () => {
   logFoodModal.style.display = "block";
 });
@@ -274,6 +280,15 @@ document.addEventListener('DOMContentLoaded', function() {
 document.getElementById('editFromExpandBtn').addEventListener('click', function() {
     expandWorkoutModal.style.display = "none";
     workoutModal.style.display = "block";
+
+    const savedWorkout = JSON.parse(localStorage.getItem('workout')) || {};
+    if (savedWorkout) {
+        Object.keys(daySelects).forEach(day => {
+            if (savedWorkout[day] && savedWorkout[day].workout.toLowerCase() !== 'rest') {
+                exerciseGroups[day].style.display = "block";
+            }
+        });
+    }
 });
 
 document.getElementById('editFromExpandBtn').addEventListener('click', function() {
@@ -511,10 +526,6 @@ function loadProfileData() {
 function editWorkout() {
     workoutModal.style.display = "block";
     
-    Object.keys(daySelects).forEach(day => {
-        exerciseGroups[day].style.display = "none";
-    });
-    
     const savedWorkout = JSON.parse(localStorage.getItem('workout')) || {};
     
     if (savedWorkout.splitType) {
@@ -528,17 +539,27 @@ function editWorkout() {
         Object.keys(daySelects).forEach(day => {
             if (savedWorkout[day]) {
                 const dayData = savedWorkout[day];
+                let workoutValue = '';
+                
                 if (dayData.type === 'ppl') {
                     daySelects[day].ppl.value = dayData.workout;
+                    workoutValue = daySelects[day].ppl.value;
                 } else if (dayData.type === 'arnold') {
                     daySelects[day].arnold.value = dayData.workout;
+                    workoutValue = daySelects[day].arnold.value;
                 } else if (dayData.type === 'ul') {
                     daySelects[day].ul.value = dayData.workout;
+                    workoutValue = daySelects[day].ul.value;
                 } else if (dayData.type === 'custom') {
                     daySelects[day].custom.value = dayData.workout;
+                    workoutValue = daySelects[day].custom.value;
                 }
                 
-                handleDaySelectChange(day);
+                if (workoutValue.toLowerCase() !== 'rest') {
+                    exerciseGroups[day].style.display = "block";
+                } else {
+                    exerciseGroups[day].style.display = "none";
+                }
                 
                 if (dayData.exercises && dayData.exercises.length > 0) {
                     const checkboxes = exerciseGroups[day].querySelectorAll('input[type="checkbox"]');
@@ -778,6 +799,12 @@ function showExpandedWorkout() {
         const workoutText = dayElement.querySelector('.day-workout');
         const exercisesContainer = dayElement.querySelector('.day-exercises');
         
+        dayElement.classList.remove('current-day');
+        
+        if (index === today) {
+            dayElement.classList.add('current-day');
+        }
+        
         const dayKey = dayKeys[index];
         if (savedWorkout[dayKey]) {
             const dayWorkout = savedWorkout[dayKey];
@@ -809,17 +836,17 @@ function handleDaySelectChange(day) {
     const isUL = ulRadio.checked;
     const isCustom = customRadio.checked;
 
-    let shouldShowExercises = false;
     let workoutValue = "";
+    let shouldShowExercises = false;
 
     if (isPPL) {
         workoutValue = daySelects[day].ppl.value.toLowerCase();
         shouldShowExercises = workoutValue !== "rest";
-    }
+    } 
     else if (isArnold) {
         workoutValue = daySelects[day].arnold.value.toLowerCase();
         shouldShowExercises = workoutValue !== "rest";
-    }
+    } 
     else if (isUL) {
         workoutValue = daySelects[day].ul.value.toLowerCase();
         shouldShowExercises = workoutValue !== "rest";
@@ -1050,21 +1077,8 @@ function resetNutritionValues() {
 }
 
 function showExpandedNutrition() {
-  const profile = JSON.parse(localStorage.getItem('profile')) || {};
-  document.getElementById('expandedCalories').textContent = calnow;
-  document.getElementById('expandedCaloriesGoal').textContent = profile.calories || 0;
-  document.getElementById('expandedProtein').textContent = proteinnow.toFixed(1);
-  document.getElementById('expandedProteinGoal').textContent = profile.protein || 0;
-  document.getElementById('expandedFat').textContent = fatnow.toFixed(1);
-  document.getElementById('expandedFatGoal').textContent = profile.fat || 0;
-  document.getElementById('expandedCarbs').textContent = carbsnow.toFixed(1);
-  document.getElementById('expandedCarbsGoal').textContent = profile.carbs || 0;
-  document.getElementById('expandedFiber').textContent = fibernow.toFixed(1);
-  document.getElementById('expandedFiberGoal').textContent = profile.fiber || 0;
-
-  updateFoodLogTable();
-  
   expandNutritionModal.style.display = "block";
+  updateExpandedNutritionDisplay();
 }
 
 function closeExpandedNutrition() {
@@ -1075,10 +1089,15 @@ function updateFoodLogTable() {
   const tbody = document.getElementById('foodLogBody');
   tbody.innerHTML = '';
 
-  const today = new Date().toDateString();
+  const today = new Date().toISOString().split('T')[0];
   const todaysFoods = foodLog.filter(food => 
-    new Date(food.date).toDateString() === today
+    new Date(food.date).toISOString().split('T')[0] === today
   );
+
+  if (todaysFoods.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="7" style="text-align: center;">No foods logged today</td></tr>';
+    return;
+  }
 
   todaysFoods.forEach((food, index) => {
     const row = document.createElement('tr');
@@ -1086,9 +1105,9 @@ function updateFoodLogTable() {
       <td>${food.name}</td>
       <td>${food.amount}g</td>
       <td>${Math.round(food.calories)}</td>
-      <td>${food.protein.toFixed(1)}</td>
-      <td>${food.fat.toFixed(1)}</td>
-      <td>${food.carbs.toFixed(1)}</td>
+      <td>${food.protein.toFixed(1)}g</td>
+      <td>${food.fat.toFixed(1)}g</td>
+      <td>${food.carbs.toFixed(1)}g</td>
       <td><button class="remove-food-btn" data-index="${index}">Remove</button></td>
     `;
     tbody.appendChild(row);
@@ -1096,7 +1115,7 @@ function updateFoodLogTable() {
 
   document.querySelectorAll('.remove-food-btn').forEach(button => {
     button.addEventListener('click', function() {
-      removeFoodItem(this.dataset.index);
+      removeFoodItem(parseInt(this.getAttribute('data-index')));
     });
   });
 }
@@ -1138,26 +1157,41 @@ function addFoodToLog(selectedFood, amount) {
   fibernow += food.fiber;
 
   updateNutritionDisplay();
+  updateExpandedNutritionDisplay();
   saveNutritionData();
   resetFoodForm();
 }
 
 function removeFoodItem(index) {
-  const removedFood = foodLog[index];
-  
-  calnow -= Math.round(removedFood.calories);
-  proteinnow -= removedFood.protein;
-  fatnow -= removedFood.fat;
-  carbsnow -= removedFood.carbs;
-  fibernow -= removedFood.fiber;
-  
-  foodLog.splice(index, 1);
-  localStorage.setItem('foodLog', JSON.stringify(foodLog));
-  
-  updateFoodLogTable();
-  updateModalMacros();
-  
-  saveNutritionData();
+  const today = new Date().toISOString().split('T')[0];
+  const todaysFoods = foodLog.filter(food => 
+    new Date(food.date).toISOString().split('T')[0] === today
+  );
+
+  if (index >= 0 && index < todaysFoods.length) {
+    const foodToRemove = todaysFoods[index];
+    const globalIndex = foodLog.findIndex(food => 
+      food.name === foodToRemove.name &&
+      food.amount === foodToRemove.amount &&
+      new Date(food.date).toISOString().split('T')[0] === today
+    );
+
+    if (globalIndex !== -1) {
+      calnow -= Math.round(foodToRemove.calories);
+      proteinnow -= foodToRemove.protein;
+      fatnow -= foodToRemove.fat;
+      carbsnow -= foodToRemove.carbs;
+      fibernow -= foodToRemove.fiber;
+
+      foodLog.splice(globalIndex, 1);
+      localStorage.setItem('foodLog', JSON.stringify(foodLog));
+
+      updateNutritionDisplay();
+      updateExpandedNutritionDisplay();
+      updateFoodLogTable();
+      saveNutritionData();
+    }
+  }
 }
 
 function updateModalMacros() {
@@ -1202,3 +1236,50 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+function updateExpandedNutritionMacros() {
+  if (expandNutritionModal.style.display === "block") {
+    const profile = JSON.parse(localStorage.getItem('profile')) || {};
+    document.getElementById('expandedCalories').textContent = calnow;
+    document.getElementById('expandedProtein').textContent = proteinnow.toFixed(1);
+    document.getElementById('expandedFat').textContent = fatnow.toFixed(1);
+    document.getElementById('expandedCarbs').textContent = carbsnow.toFixed(1);
+    document.getElementById('expandedFiber').textContent = fibernow.toFixed(1);
+    
+    if (profile.calories) {
+      document.getElementById('expandedCaloriesGoal').textContent = profile.calories;
+    }
+    if (profile.protein) {
+      document.getElementById('expandedProteinGoal').textContent = profile.protein;
+    }
+    if (profile.fat) {
+      document.getElementById('expandedFatGoal').textContent = profile.fat;
+    }
+    if (profile.carbs) {
+      document.getElementById('expandedCarbsGoal').textContent = profile.carbs;
+    }
+    if (profile.fiber) {
+      document.getElementById('expandedFiberGoal').textContent = profile.fiber;
+    }
+  }
+}
+
+function updateExpandedNutritionDisplay() {
+  if (expandNutritionModal.style.display === "block") {
+    const profile = JSON.parse(localStorage.getItem('profile')) || {};
+    
+    document.getElementById('expandedCalories').textContent = calnow;
+    document.getElementById('expandedProtein').textContent = proteinnow.toFixed(1);
+    document.getElementById('expandedFat').textContent = fatnow.toFixed(1);
+    document.getElementById('expandedCarbs').textContent = carbsnow.toFixed(1);
+    document.getElementById('expandedFiber').textContent = fibernow.toFixed(1);
+    
+    if (profile.calories) document.getElementById('expandedCaloriesGoal').textContent = profile.calories;
+    if (profile.protein) document.getElementById('expandedProteinGoal').textContent = profile.protein;
+    if (profile.fat) document.getElementById('expandedFatGoal').textContent = profile.fat;
+    if (profile.carbs) document.getElementById('expandedCarbsGoal').textContent = profile.carbs;
+    if (profile.fiber) document.getElementById('expandedFiberGoal').textContent = profile.fiber;
+    
+    updateFoodLogTable();
+  }
+}
