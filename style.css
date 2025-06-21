@@ -715,6 +715,25 @@ input[type="checkbox"] {
     }
 }
 
+.current-day {
+    background-color: rgba(239, 75, 76, 0.2) !important;
+    border: 2px solid var(--secondary-color) !important;
+    position: relative;
+}
+
+.current-day::before {
+    content: "Today";
+    position: absolute;
+    top: -12px;
+    right: 10px;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
 @media (max-width: 375px) {
     .data {
         grid-template-columns: 1fr;
